@@ -1,0 +1,32 @@
+﻿@model CE.Playbills.MVC.Models.MediaResource
+
+@{
+    ViewData["Title"] = "Resource details";
+}
+
+<div class="row">
+    <div class="col col-sm-8">          
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+    </div>
+    <div class="col col-sm-4">
+        <img src="@Url.Content(Model.ResourceUrl)" alt="Image" />
+    </div>
+</div>
+<div>
+    @await Component.InvokeAsync("Core.CommentsList", new { mediaResourceId = Model.Id })
+</div>

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CE.Playbills.MVC.Models.MediaResource>
+@{
+    ViewData["Title"] = "SearchResults";
+}
+
+<h1>Search Results</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            @foreach (var item in Model)
+            {
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        <img src="@Url.Content(item.ResourceUrl)" alt="Image" width="50px"/>
+                    </a>
+                    <br />
+                    <p>@Html.DisplayFor(modelItem => item.Title)</p>
+                </td>
+
+            }
+        </tr>
+    </tbody>
+</table>

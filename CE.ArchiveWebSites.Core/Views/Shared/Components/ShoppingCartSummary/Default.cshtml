@@ -1,0 +1,7 @@
+﻿@model CE.ArchiveWebSites.Core.Areas.ECommerce.ViewModels.ShoppingCartViewModel
+
+<a asp-area="ECommerce" asp-controller="ShoppingCart" asp-action="Index">
+    <span id="cart-status">
+        @Model.ShoppingCart.ShoppingCartItems.Count
+    </span>
+</a>

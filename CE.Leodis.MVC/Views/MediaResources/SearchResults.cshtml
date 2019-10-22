@@ -1,0 +1,12 @@
+﻿@model IEnumerable<CE.Leodis.MVC.Models.MediaResource>
+@{
+    ViewData["Title"] = "SearchResults";
+}
+
+<h1>Search Results</h1>
+
+@foreach (var item in Model)
+{
+    <partial name="_MediaResourceCard" model="item" />
+}
+
