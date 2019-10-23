@@ -12,7 +12,7 @@
 
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">
-                        <img src="@Url.Content(item.ResourceUrl)" alt="Image" width="50px"/>
+                        <img src="@Url.Content(item.ImageLink)" alt="Image" width="50px"/>
                     </a>
                     <br />
                     <p>@Html.DisplayFor(modelItem => item.Title)</p>

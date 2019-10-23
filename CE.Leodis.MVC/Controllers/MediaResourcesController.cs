@@ -26,7 +26,7 @@ namespace CE.Leodis.MVC.Controllers
         }
         public async Task<IActionResult> SearchResults()
         {
-            var mediaResources = await HttpClientHelper.GetFromLMARApi<List<MediaResource>>("https://localhost:44300/api/v1/archives/1/mediarecords?pagenumber=2");
+            var mediaResources = await HttpClientHelper.GetFromLMARApi<List<MediaResource>>("https://localhost:44300/api/v1/archives/1/mediarecords");
             if (mediaResources == null)
             {
                 return NotFound();
@@ -67,8 +67,7 @@ namespace CE.Leodis.MVC.Controllers
             DetailsViewModel detailsViewModel = new DetailsViewModel()
             {
                 MediaResource = mediaResource,
-                CheckoutDetails = checkoutDetails//,
-                //ImageLink = imageLink
+                CheckoutDetails = checkoutDetails
             };
 
             return View(detailsViewModel);

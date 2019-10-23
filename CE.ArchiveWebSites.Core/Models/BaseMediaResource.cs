@@ -14,5 +14,6 @@ namespace CE.ArchiveWebSites.Core.Models
         public string Subject { get; set; }
         public int ArchiveId { get; set; }
         public List<Link> Links { get; set; }
+        public string ImageLink { get; set; }
     }
 }

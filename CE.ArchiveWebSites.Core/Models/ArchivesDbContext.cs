@@ -31,7 +31,7 @@ namespace CE.ArchiveWebSites.Core.Models
             //seed comments
             modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 1, Comment = "That's lovely", CreatedBy = "Catherine", MediaResourceId = 1 });
             modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 2, Comment = "Not great", CreatedBy = "Catherine", MediaResourceId = 2 });
-            modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 3, Comment = "That's a lovely Playbill", CreatedBy = "Catherine", MediaResourceId = 3 });
+            modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 3, Comment = "That's a lovely Playbill", CreatedBy = "Catherine", MediaResourceId = 9999 });
             modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 4, Comment = "Not a great Playbill", CreatedBy = "Catherine", MediaResourceId = 4 });
 
             //seed sizes
