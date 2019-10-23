@@ -9,5 +9,8 @@ namespace CE.Leodis.MVC.Models
     public class MediaResource : BaseMediaResource
     {
         public string SomeLeodisProperty { get; set; }
+
+        public string ImageLink { get; set; }
+
     }
 }

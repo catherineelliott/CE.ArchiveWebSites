@@ -9,13 +9,13 @@
 <h2>@Html.DisplayFor(model => model.MediaResource.Title)</h2>
 
 <div>
-    <img src="@Url.Content(Model.MediaResource.ResourceUrl)" alt="Image" />
+    <img src="@Url.Content(Model.MediaResource.ImageLink)" alt="Image" />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MediaResource.Description)
+            @Html.DisplayNameFor(model => model.MediaResource.Subject)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MediaResource.Description)
+            @Html.DisplayFor(model => model.MediaResource.Subject)
         </dd>
     </dl>
 </div>

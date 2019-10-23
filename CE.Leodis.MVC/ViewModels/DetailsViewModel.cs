@@ -14,6 +14,7 @@ namespace CE.Leodis.MVC.ViewModels
     {
         public MediaResource MediaResource { get; set; }
         //public IEnumerable<MediaResourceComment> Comments { get; set; }
+        //public string ImageLink { get; set; }
 
         public CheckoutDetails CheckoutDetails { get; set; }
     }

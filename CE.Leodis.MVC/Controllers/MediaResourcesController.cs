@@ -31,6 +31,12 @@ namespace CE.Leodis.MVC.Controllers
             {
                 return NotFound();
             }
+
+            foreach (var mr in mediaResources)
+            {
+                mr.ImageLink = mr.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
+            };
+
             //Need to update CE API instead
             //var leodisMediaResources = mediaResources.Where(ai => ai.ArchiveId == 1);
             return View(mediaResources);
@@ -56,10 +62,13 @@ namespace CE.Leodis.MVC.Controllers
                 Sizes = _orderRepository.GetSizes()
             };
 
+            mediaResource.ImageLink = mediaResource.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
+
             DetailsViewModel detailsViewModel = new DetailsViewModel()
             {
                 MediaResource = mediaResource,
-                CheckoutDetails = checkoutDetails
+                CheckoutDetails = checkoutDetails//,
+                //ImageLink = imageLink
             };
 
             return View(detailsViewModel);

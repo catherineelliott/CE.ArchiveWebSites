@@ -11,6 +11,8 @@ namespace CE.ArchiveWebSites.Core.Models
         public string Title { get; set; }
         public string ResourceUrl { get; set; }
         public string Description { get; set; }
+        public string Subject { get; set; }
         public int ArchiveId { get; set; }
+        public List<Link> Links { get; set; }
     }
 }
