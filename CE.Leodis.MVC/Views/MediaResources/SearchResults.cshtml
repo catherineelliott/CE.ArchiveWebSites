@@ -1,12 +1,15 @@
-﻿@model IEnumerable<CE.Leodis.MVC.Models.MediaResource>
+﻿@model PagedMediaResources
 @{
     ViewData["Title"] = "SearchResults";
 }
 
 <h1>Search Results</h1>
 
-@foreach (var item in Model)
+<partial name="_PaginationPartial" />
+
+@foreach (var item in Model.MediaResources)
 {
     <partial name="_MediaResourceCard" model="item" />
 }
+
 

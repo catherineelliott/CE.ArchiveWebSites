@@ -10,6 +10,8 @@ using CE.ArchiveWebSites.Core.Helpers;
 using CE.Leodis.MVC.ViewModels;
 using CE.ArchiveWebSites.Core.Areas.ECommerce.Models;
 using CE.ArchiveWebSites.Core.Areas.Commenting.Models;
+using CE.ArchiveWebSites.Core.Models;
+using Newtonsoft.Json;
 
 namespace CE.Leodis.MVC.Controllers
 {
@@ -24,9 +26,16 @@ namespace CE.Leodis.MVC.Controllers
             _mediaResourceCommentsRepository = mediaResourceCommentsRepository;
             _orderRepository = orderRepository;
         }
-        public async Task<IActionResult> SearchResults()
+        public async Task<IActionResult> SearchResults(string apiUrl, int pageNumber = 1, int pageSize = 5)
         {
-            var mediaResources = await HttpClientHelper.GetFromLMARApi<List<MediaResource>>("https://localhost:44300/api/v1/archives/1/mediarecords");
+            if (apiUrl == null)
+            {
+                apiUrl = $"https://localhost:44300/api/v1/archives/9/mediarecords?pagesize={pageSize}&pagenumber={pageNumber}";
+            }
+            var responseObject = await HttpClientHelper.GetFromLMARApi<List<MediaResource>>(apiUrl);
+
+            List<MediaResource> mediaResources = responseObject.ResponseData;
+            
             if (mediaResources == null)
             {
                 return NotFound();
@@ -37,9 +46,21 @@ namespace CE.Leodis.MVC.Controllers
                 mr.ImageLink = mr.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
             };
 
-            //Need to update CE API instead
-            //var leodisMediaResources = mediaResources.Where(ai => ai.ArchiveId == 1);
-            return View(mediaResources);
+            PaginationDetails paginationDetails = new PaginationDetails();
+
+            var paginationHeader = responseObject.ResponseHeaders.Where(a => a.Key == "X-Pagination")
+                                        .FirstOrDefault().Value;
+            if (paginationHeader != null)
+            {
+                paginationDetails = JsonConvert.DeserializeObject<PaginationDetails>(paginationHeader.FirstOrDefault());
+            }
+            PagedMediaResources pagedMediaResources = new PagedMediaResources()
+            {
+                PaginationDetails = paginationDetails,
+                MediaResources = mediaResources
+            };
+
+            return View(pagedMediaResources);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -49,7 +70,9 @@ namespace CE.Leodis.MVC.Controllers
                 return NotFound();
             }
 
-            var mediaResource = await HttpClientHelper.GetFromLMARApi<MediaResource>($"https://localhost:44300/api/v1/archives/1/mediarecords/{id}");
+            var responseObject = await HttpClientHelper.GetFromLMARApi<MediaResource>($"https://localhost:44300/api/v1/archives/9/mediarecords/{id}");
+
+            MediaResource mediaResource = responseObject.ResponseData;
 
             if (mediaResource == null)
             {

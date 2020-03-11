@@ -14,6 +14,7 @@ namespace CE.ArchiveWebSites.Core.Areas.Commenting.Models
         {
             _archivesDbContext = archiveDbContext;
         }
+        //Maybe don't need.  CommentsListViewComponent can get from database.  This doesn't add anything.
         public IEnumerable<MediaResourceComment> AllCommentsByMediaResourceId(int? mediaResourceId)
         {
             return _archivesDbContext.MediaResourceComments.Where(c => c.MediaResourceId == mediaResourceId);

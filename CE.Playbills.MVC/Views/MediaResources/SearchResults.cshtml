@@ -1,18 +1,21 @@
-﻿@model IEnumerable<CE.Playbills.MVC.Models.MediaResource>
+﻿@model PagedMediaResources
 @{
     ViewData["Title"] = "SearchResults";
 }
 
 <h1>Search Results</h1>
+
+<partial name="_PaginationPartial" />
+
 <table class="table">
     <tbody>
         <tr>
-            @foreach (var item in Model)
+            @foreach (var item in Model.MediaResources)
             {
 
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Id">
-                        <img src="@Url.Content(item.ImageLink)" alt="Image" width="50px"/>
+                        <img src="@Url.Content(item.ImageLink)" alt="Image" width="50px" />
                     </a>
                     <br />
                     <p>@Html.DisplayFor(modelItem => item.Title)</p>
