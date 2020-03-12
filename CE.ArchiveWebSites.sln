@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CE.Admin.MVC", "CE.Admin.MVC\CE.Admin.MVC.csproj", "{8EAFA8DE-6E5E-4700-8AEB-6C26985B3B64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CE.Admin.MVC", "CE.Admin.MVC\CE.Admin.MVC.csproj", "{04EBBBEA-9791-44AF-9E14-599FDD164DF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{C3AD0E02-E49B-4DB4-9709-F9609ECB963A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3AD0E02-E49B-4DB4-9709-F9609ECB963A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3AD0E02-E49B-4DB4-9709-F9609ECB963A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EAFA8DE-6E5E-4700-8AEB-6C26985B3B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EAFA8DE-6E5E-4700-8AEB-6C26985B3B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EAFA8DE-6E5E-4700-8AEB-6C26985B3B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EAFA8DE-6E5E-4700-8AEB-6C26985B3B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04EBBBEA-9791-44AF-9E14-599FDD164DF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04EBBBEA-9791-44AF-9E14-599FDD164DF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04EBBBEA-9791-44AF-9E14-599FDD164DF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04EBBBEA-9791-44AF-9E14-599FDD164DF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

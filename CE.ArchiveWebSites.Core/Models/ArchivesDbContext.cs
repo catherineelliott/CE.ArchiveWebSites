@@ -11,6 +11,9 @@ namespace CE.ArchiveWebSites.Core.Models
 {
     public class ArchivesDbContext : DbContext
     {
+
+        public ArchivesDbContext() {}
+
         public ArchivesDbContext(DbContextOptions<ArchivesDbContext> options) : base(options)
         {
 
