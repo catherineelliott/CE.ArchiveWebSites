@@ -1,4 +1,4 @@
-﻿using CE.ArchiveWebSites.Core.Enums;
+﻿using CE.ArchiveWebSites.Core.Areas.ECommerce.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

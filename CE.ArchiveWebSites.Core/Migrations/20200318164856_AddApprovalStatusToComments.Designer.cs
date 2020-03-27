@@ -4,14 +4,16 @@ using CE.ArchiveWebSites.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CE.ArchiveWebSites.Core.Migrations
 {
     [DbContext(typeof(ArchivesDbContext))]
-    partial class ArchivesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200318164856_AddApprovalStatusToComments")]
+    partial class AddApprovalStatusToComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

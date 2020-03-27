@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CE.ArchiveWebSites.Core.Areas.Commenting.Models;
 using CE.ArchiveWebSites.Core.Areas.ECommerce.Models;
 using CE.ArchiveWebSites.Core.Areas.WebCard.Models;
+using CE.ArchiveWebSites.Core.Areas.ECommerce.Enums;
 
 namespace CE.ArchiveWebSites.Core.Models
 {
@@ -42,12 +43,12 @@ namespace CE.ArchiveWebSites.Core.Models
             modelBuilder.Entity<OrderSize>().HasData(new OrderSize { OrderSizeId = 2, Size = "12 x 9 inches" });
             modelBuilder.Entity<OrderSize>().HasData(new OrderSize { OrderSizeId = 3, Size = "16 x 12 inches" });
             //seed costs
-            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 1, SizeId = 1, PrintFinish = Enums.PrintFinish.Matt, Cost = Convert.ToDecimal(6.67) });
-            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 2, SizeId = 1, PrintFinish = Enums.PrintFinish.Gloss, Cost = Convert.ToDecimal(6.67) });
-            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 3, SizeId = 2, PrintFinish = Enums.PrintFinish.Matt, Cost = Convert.ToDecimal(9.17) });
-            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 4, SizeId = 2, PrintFinish = Enums.PrintFinish.Gloss, Cost = Convert.ToDecimal(9.17) });
-            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 5, SizeId = 3, PrintFinish = Enums.PrintFinish.Matt, Cost = Convert.ToDecimal(10.84) });
-            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 6, SizeId = 3, PrintFinish = Enums.PrintFinish.Gloss, Cost = Convert.ToDecimal(10.84) });
+            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 1, SizeId = 1, PrintFinish = PrintFinish.Matt, Cost = Convert.ToDecimal(6.67) });
+            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 2, SizeId = 1, PrintFinish = PrintFinish.Gloss, Cost = Convert.ToDecimal(6.67) });
+            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 3, SizeId = 2, PrintFinish = PrintFinish.Matt, Cost = Convert.ToDecimal(9.17) });
+            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 4, SizeId = 2, PrintFinish = PrintFinish.Gloss, Cost = Convert.ToDecimal(9.17) });
+            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 5, SizeId = 3, PrintFinish = PrintFinish.Matt, Cost = Convert.ToDecimal(10.84) });
+            modelBuilder.Entity<OrderCost>().HasData(new OrderCost { OrderCostId = 6, SizeId = 3, PrintFinish = PrintFinish.Gloss, Cost = Convert.ToDecimal(10.84) });
         }
     }
 }

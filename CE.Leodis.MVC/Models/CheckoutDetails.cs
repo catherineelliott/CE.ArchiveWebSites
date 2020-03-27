@@ -1,10 +1,10 @@
-﻿using CE.ArchiveWebSites.Core.Enums;
-using CE.ArchiveWebSites.Core.Areas.ECommerce.Models;
+﻿using CE.ArchiveWebSites.Core.Areas.ECommerce.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using CE.ArchiveWebSites.Core.Areas.ECommerce.Enums;
 
 namespace CE.Leodis.MVC.Models
 {

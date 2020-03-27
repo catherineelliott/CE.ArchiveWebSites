@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CE.ArchiveWebSites.Core.Enums;
+using CE.ArchiveWebSites.Core.Areas.ECommerce.Enums;
 
 namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
 {
