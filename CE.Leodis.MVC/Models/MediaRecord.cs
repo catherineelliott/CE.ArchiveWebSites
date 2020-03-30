@@ -6,7 +6,7 @@ using CE.ArchiveWebSites.Core.Models;
 
 namespace CE.Leodis.MVC.Models
 {
-    public class MediaResource : BaseMediaResource
+    public class MediaRecord : BaseMediaRecord
     {
         public string SomeLeodisProperty { get; set; }
 

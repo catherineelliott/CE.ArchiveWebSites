@@ -7,20 +7,20 @@ namespace CE.ArchiveWebSites.Core.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.UpdateData(
-                table: "MediaResourceComments",
-                keyColumn: "MediaResourceCommentId",
+                table: "MediaRecordComments",
+                keyColumn: "MediaRecordCommentId",
                 keyValue: 3,
-                column: "MediaResourceId",
+                column: "MediaRecordId",
                 value: 9999);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.UpdateData(
-                table: "MediaResourceComments",
-                keyColumn: "MediaResourceCommentId",
+                table: "MediaRecordComments",
+                keyColumn: "MediaRecordCommentId",
                 keyValue: 3,
-                column: "MediaResourceId",
+                column: "MediaRecordId",
                 value: 3);
         }
     }

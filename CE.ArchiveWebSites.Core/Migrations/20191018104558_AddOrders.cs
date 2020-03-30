@@ -101,7 +101,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
                     OrderDetailId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(nullable: false),
-                    MediaResourceId = table.Column<int>(nullable: false),
+                    MediaRecordId = table.Column<int>(nullable: false),
                     Amount = table.Column<int>(nullable: false),
                     SizeId = table.Column<int>(nullable: false),
                     Sepia = table.Column<bool>(nullable: false),

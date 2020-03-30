@@ -10,7 +10,7 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
     {
         public int OrderDetailId { get; set; }
         public int OrderId { get; set; }
-        public int MediaResourceId { get; set; }
+        public int MediaRecordId { get; set; }
         public int Amount { get; set; }
         public int SizeId { get; set; }
         public OrderSize Size { get; set; }

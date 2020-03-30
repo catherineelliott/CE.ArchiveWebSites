@@ -1,4 +1,4 @@
-﻿@model PagedMediaResources
+﻿@model PagedMediaRecords
 @{
     ViewData["Title"] = "SearchResults";
 }
@@ -10,7 +10,7 @@
 <table class="table">
     <tbody>
         <tr>
-            @foreach (var item in Model.MediaResources)
+            @foreach (var item in Model.MediaRecords)
             {
 
                 <td>

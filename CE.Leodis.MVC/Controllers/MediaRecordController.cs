@@ -15,15 +15,15 @@ using Newtonsoft.Json;
 
 namespace CE.Leodis.MVC.Controllers
 {
-    public class MediaResourcesController : Controller
+    public class MediaRecordsController : Controller
     {
-        private readonly IMediaResourceCommentsRepository _mediaResourceCommentsRepository;
+        private readonly IMediaRecordCommentsRepository _mediaRecordCommentsRepository;
         private readonly IOrderRepository _orderRepository;
 
-        public MediaResourcesController(IMediaResourceCommentsRepository mediaResourceCommentsRepository,
+        public MediaRecordsController(IMediaRecordCommentsRepository mediaRecordCommentsRepository,
                                             IOrderRepository orderRepository)
         {
-            _mediaResourceCommentsRepository = mediaResourceCommentsRepository;
+            _mediaRecordCommentsRepository = mediaRecordCommentsRepository;
             _orderRepository = orderRepository;
         }
         public async Task<IActionResult> SearchResults(string apiUrl, int pageNumber = 1, int pageSize = 5)
@@ -32,16 +32,16 @@ namespace CE.Leodis.MVC.Controllers
             {
                 apiUrl = $"https://localhost:44300/api/v1/archives/9/mediarecords?pagesize={pageSize}&pagenumber={pageNumber}";
             }
-            var responseObject = await HttpClientHelper.GetFromLMARApi<List<MediaResource>>(apiUrl);
+            var responseObject = await HttpClientHelper.GetFromLMARApi<List<MediaRecord>>(apiUrl);
 
-            List<MediaResource> mediaResources = responseObject.ResponseData;
+            List<MediaRecord> mediaRecords = responseObject.ResponseData;
             
-            if (mediaResources == null)
+            if (mediaRecords == null)
             {
                 return NotFound();
             }
 
-            foreach (var mr in mediaResources)
+            foreach (var mr in mediaRecords)
             {
                 mr.ImageLink = mr.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
             };
@@ -54,13 +54,13 @@ namespace CE.Leodis.MVC.Controllers
             {
                 paginationDetails = JsonConvert.DeserializeObject<PaginationDetails>(paginationHeader.FirstOrDefault());
             }
-            PagedMediaResources pagedMediaResources = new PagedMediaResources()
+            PagedMediaRecords pagedMediaRecords = new PagedMediaRecords()
             {
                 PaginationDetails = paginationDetails,
-                MediaResources = mediaResources
+                MediaRecords = mediaRecords
             };
 
-            return View(pagedMediaResources);
+            return View(pagedMediaRecords);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -70,11 +70,11 @@ namespace CE.Leodis.MVC.Controllers
                 return NotFound();
             }
 
-            var responseObject = await HttpClientHelper.GetFromLMARApi<MediaResource>($"https://localhost:44300/api/v1/archives/9/mediarecords/{id}");
+            var responseObject = await HttpClientHelper.GetFromLMARApi<MediaRecord>($"https://localhost:44300/api/v1/archives/9/mediarecords/{id}");
 
-            MediaResource mediaResource = responseObject.ResponseData;
+            MediaRecord mediaRecord = responseObject.ResponseData;
 
-            if (mediaResource == null)
+            if (mediaRecord == null)
             {
                 return NotFound();
             }
@@ -85,11 +85,11 @@ namespace CE.Leodis.MVC.Controllers
                 Sizes = _orderRepository.GetSizes()
             };
 
-            mediaResource.ImageLink = mediaResource.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
+            mediaRecord.ImageLink = mediaRecord.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
 
             DetailsViewModel detailsViewModel = new DetailsViewModel()
             {
-                MediaResource = mediaResource,
+                MediaRecord = mediaRecord,
                 CheckoutDetails = checkoutDetails
             };
 

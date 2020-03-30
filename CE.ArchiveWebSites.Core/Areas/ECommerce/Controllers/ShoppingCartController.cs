@@ -34,16 +34,16 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Controllers
             return View(shoppingCartViewModel);
         }
 
-        public RedirectToActionResult AddToShoppingCart(int mediaResourceId, int sizeId)
+        public RedirectToActionResult AddToShoppingCart(int mediaRecordId, int sizeId)
         {
-            _shoppingCart.AddToCart(mediaResourceId, sizeId);
+            _shoppingCart.AddToCart(mediaRecordId, sizeId);
 
             return RedirectToAction("Index");
         }
 
-        public RedirectToActionResult RemoveFromShoppingCart(int mediaResourceId)
+        public RedirectToActionResult RemoveFromShoppingCart(int mediaRecordId)
         {
-            _shoppingCart.RemoveFromCart(mediaResourceId);
+            _shoppingCart.RemoveFromCart(mediaRecordId);
 
             return RedirectToAction("Index");
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CE.Playbills.MVC.Models
 {
-    public class MediaResource : BaseMediaResource
+    public class MediaRecord : BaseMediaRecord
     {
         public string SomePlaybillsProperty { get; set; }
     }

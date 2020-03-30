@@ -12,7 +12,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
                 {
                     ShoppingCartItemId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MediaResourceId = table.Column<int>(nullable: false),
+                    MediaRecordId = table.Column<int>(nullable: false),
                     Amount = table.Column<int>(nullable: false),
                     Size = table.Column<string>(nullable: true),
                     Sepia = table.Column<bool>(nullable: false),

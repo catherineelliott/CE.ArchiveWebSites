@@ -38,7 +38,7 @@ namespace CE.Playbills.MVC
 
             services.AddDbContext<ArchivesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IMediaResourceCommentsRepository, MediaResourceCommentsRepository>();
+            services.AddScoped<IMediaRecordCommentsRepository, MediaRecordCommentsRepository>();
 
             var filesProvider = new ManifestEmbeddedFileProvider(AppDomain.CurrentDomain.GetAssemblies()
                 .SingleOrDefault(assembly => assembly.GetName().Name == "CE.ArchiveWebSites.Core"));

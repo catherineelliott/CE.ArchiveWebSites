@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CE.Playbills.MVC.Models
 {
-    public class PagedMediaResources
+    public class PagedMediaRecords
     {
         public PaginationDetails PaginationDetails { get; set; }
 
-        public List<MediaResource> MediaResources { get; set; }
+        public List<MediaRecord> MediaRecords { get; set; }
     }
 }

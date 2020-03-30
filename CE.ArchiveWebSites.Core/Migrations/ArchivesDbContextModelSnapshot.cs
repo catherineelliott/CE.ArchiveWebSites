@@ -19,9 +19,9 @@ namespace CE.ArchiveWebSites.Core.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CE.ArchiveWebSites.Core.Areas.Commenting.Models.MediaResourceComment", b =>
+            modelBuilder.Entity("CE.ArchiveWebSites.Core.Areas.Commenting.Models.MediaRecordComment", b =>
                 {
-                    b.Property<int>("MediaResourceCommentId")
+                    b.Property<int>("MediaRecordCommentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -35,45 +35,45 @@ namespace CE.ArchiveWebSites.Core.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MediaResourceId")
+                    b.Property<int>("MediaRecordId")
                         .HasColumnType("int");
 
-                    b.HasKey("MediaResourceCommentId");
+                    b.HasKey("MediaRecordCommentId");
 
-                    b.ToTable("MediaResourceComments");
+                    b.ToTable("MediaRecordComments");
 
                     b.HasData(
                         new
                         {
-                            MediaResourceCommentId = 1,
+                            MediaRecordCommentId = 1,
                             ApprovalStatus = 0,
                             Comment = "That's lovely",
                             CreatedBy = "Catherine",
-                            MediaResourceId = 1
+                            MediaRecordId = 1
                         },
                         new
                         {
-                            MediaResourceCommentId = 2,
+                            MediaRecordCommentId = 2,
                             ApprovalStatus = 0,
                             Comment = "Not great",
                             CreatedBy = "Catherine",
-                            MediaResourceId = 2
+                            MediaRecordId = 2
                         },
                         new
                         {
-                            MediaResourceCommentId = 3,
+                            MediaRecordCommentId = 3,
                             ApprovalStatus = 0,
                             Comment = "That's a lovely Playbill",
                             CreatedBy = "Catherine",
-                            MediaResourceId = 9999
+                            MediaRecordId = 9999
                         },
                         new
                         {
-                            MediaResourceCommentId = 4,
+                            MediaRecordCommentId = 4,
                             ApprovalStatus = 0,
                             Comment = "Not a great Playbill",
                             CreatedBy = "Catherine",
-                            MediaResourceId = 4
+                            MediaRecordId = 4
                         });
                 });
 
@@ -219,7 +219,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
                     b.Property<int>("Finish")
                         .HasColumnType("int");
 
-                    b.Property<int>("MediaResourceId")
+                    b.Property<int>("MediaRecordId")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderId")
@@ -291,7 +291,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
                     b.Property<int>("Finish")
                         .HasColumnType("int");
 
-                    b.Property<int>("MediaResourceId")
+                    b.Property<int>("MediaRecordId")
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderSizeId")

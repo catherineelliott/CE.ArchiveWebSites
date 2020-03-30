@@ -8,7 +8,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
         {
             migrationBuilder.AddColumn<int>(
                 name: "ApprovalStatus",
-                table: "MediaResourceComments",
+                table: "MediaRecordComments",
                 nullable: false,
                 defaultValue: 0);
         }
@@ -17,7 +17,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "ApprovalStatus",
-                table: "MediaResourceComments");
+                table: "MediaRecordComments");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model CE.Playbills.MVC.Models.MediaResource
+﻿@model CE.Playbills.MVC.Models.MediaRecord
 
 @{
     ViewData["Title"] = "Resource details";
@@ -28,5 +28,5 @@
     </div>
 </div>
 <div>
-    @await Component.InvokeAsync("Core.CommentsList", new { mediaResourceId = Model.Id })
+    @await Component.InvokeAsync("Core.CommentsList", new { mediaRecordId = Model.Id })
 </div>

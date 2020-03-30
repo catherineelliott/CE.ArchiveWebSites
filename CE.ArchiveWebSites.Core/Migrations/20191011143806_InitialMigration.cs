@@ -7,18 +7,18 @@ namespace CE.ArchiveWebSites.Core.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MediaResourceComments",
+                name: "MediaRecordComments",
                 columns: table => new
                 {
-                    MediaResourceCommentId = table.Column<int>(nullable: false)
+                    MediaRecordCommentId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Comment = table.Column<string>(nullable: true),
                     CreatedBy = table.Column<string>(nullable: true),
-                    MediaResourceId = table.Column<int>(nullable: false)
+                    MediaRecordId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MediaResourceComments", x => x.MediaResourceCommentId);
+                    table.PrimaryKey("PK_MediaRecordComments", x => x.MediaRecordCommentId);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,8 +35,8 @@ namespace CE.ArchiveWebSites.Core.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "MediaResourceComments",
-                columns: new[] { "MediaResourceCommentId", "Comment", "CreatedBy", "MediaResourceId" },
+                table: "MediaRecordComments",
+                columns: new[] { "MediaRecordCommentId", "Comment", "CreatedBy", "MediaRecordId" },
                 values: new object[,]
                 {
                     { 1, "That's lovely", "Catherine", 1 },
@@ -49,7 +49,7 @@ namespace CE.ArchiveWebSites.Core.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MediaResourceComments");
+                name: "MediaRecordComments");
 
             migrationBuilder.DropTable(
                 name: "WebCards");

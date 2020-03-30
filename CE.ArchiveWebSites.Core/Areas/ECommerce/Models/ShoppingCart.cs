@@ -37,12 +37,12 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
 
         }
 
-        public void AddToCart(int mediaResourceId, int sizeId)
+        public void AddToCart(int mediaRecordId, int sizeId)
         {
             var shoppingCartItem =
                     _archivesDbContext.ShoppingCartItems
                     .SingleOrDefault(
-                        s => s.MediaResourceId == mediaResourceId 
+                        s => s.MediaRecordId == mediaRecordId 
                         && s.SizeId == sizeId
                         && s.ShoppingCartId == ShoppingCartId);
 
@@ -56,7 +56,7 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
                 shoppingCartItem = new ShoppingCartItem
                 {
                     ShoppingCartId = ShoppingCartId,
-                    MediaResourceId = mediaResourceId,
+                    MediaRecordId = mediaRecordId,
                     SizeId = sizeId,
                     OrderSize = size,
                     Cost = cost.Cost,
@@ -72,11 +72,11 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
             _archivesDbContext.SaveChanges();
         }
 
-        public int RemoveFromCart(int mediaResourceId)
+        public int RemoveFromCart(int mediaRecordId)
         {
             var shoppingCartItem =
                     _archivesDbContext.ShoppingCartItems.SingleOrDefault(
-                        s => s.MediaResourceId == mediaResourceId && s.ShoppingCartId == ShoppingCartId);
+                        s => s.MediaRecordId == mediaRecordId && s.ShoppingCartId == ShoppingCartId);
 
             var localAmount = 0;
 

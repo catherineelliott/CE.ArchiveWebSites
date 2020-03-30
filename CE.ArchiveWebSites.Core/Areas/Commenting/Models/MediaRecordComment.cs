@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CE.ArchiveWebSites.Core.Areas.Commenting.Models
 {
-    public class MediaResourceComment
+    public class MediaRecordComment
     {
-        public int MediaResourceCommentId { get; set; }       
+        public int MediaRecordCommentId { get; set; }       
         public string Comment { get; set; }
         public string CreatedBy { get; set; }
-        public int MediaResourceId { get; set; }
+        public int MediaRecordId { get; set; }
         public ApprovalStatus ApprovalStatus { get; set; }
     }
 }

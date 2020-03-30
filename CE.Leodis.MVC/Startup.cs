@@ -43,7 +43,7 @@ namespace CE.Leodis.MVC
 
             services.AddDbContext<ArchivesDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IMediaResourceCommentsRepository, MediaResourceCommentsRepository>();
+            services.AddScoped<IMediaRecordCommentsRepository, MediaRecordCommentsRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             //services.AddArchiveWebSitesCoreLibrary();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));

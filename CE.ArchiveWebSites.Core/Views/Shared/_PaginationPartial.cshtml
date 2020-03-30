@@ -7,19 +7,19 @@
     <ul class="pagination">
         <li style="padding-right: 10px;">
             <a class="btn btn-primary @prevDisabled"
-               asp-controller="MediaResources"
+               asp-controller="MediaRecords"
                asp-action="SearchResults"
                asp-route-apiUrl="@Model.PaginationDetails.PreviousPageLink">Previous</a>
         </li>
         @for (var i = 1; i <= Model.PaginationDetails.TotalPages; i++)
         {
             <li class="page-item @(i == Model.PaginationDetails.CurrentPage ? "active" : "")">
-                <a asp-controller="MediaResources" asp-action="SearchResults" asp-route-apiUrl="" asp-route-pageNumber="@i" class="page-link">@i</a>
+                <a asp-controller="MediaRecords" asp-action="SearchResults" asp-route-apiUrl="" asp-route-pageNumber="@i" class="page-link">@i</a>
             </li>
         }
         <li style="padding-left: 10px;">
             <a class="btn btn-primary @nextDisabled"
-               asp-controller="MediaResources"
+               asp-controller="MediaRecords"
                asp-action="SearchResults"
                asp-route-apiUrl="@Model.PaginationDetails.NextPageLink">Next</a>
         </li>

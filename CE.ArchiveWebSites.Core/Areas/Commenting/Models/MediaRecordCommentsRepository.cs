@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace CE.ArchiveWebSites.Core.Areas.Commenting.Models
 {
-    public class MediaResourceCommentsRepository : IMediaResourceCommentsRepository
+    public class MediaRecordCommentsRepository : IMediaRecordCommentsRepository
     {
         private readonly ArchivesDbContext _archivesDbContext;
 
-        public MediaResourceCommentsRepository(ArchivesDbContext archiveDbContext)
+        public MediaRecordCommentsRepository(ArchivesDbContext archiveDbContext)
         {
             _archivesDbContext = archiveDbContext;
         }
         //Maybe don't need.  CommentsListViewComponent can get from database.  This doesn't add anything.
-        public IEnumerable<MediaResourceComment> AllCommentsByMediaResourceId(int? mediaResourceId)
+        public IEnumerable<MediaRecordComment> AllCommentsByMediaRecordId(int? mediaRecordId)
         {
-            return _archivesDbContext.MediaResourceComments.Where(c => c.MediaResourceId == mediaResourceId);
+            return _archivesDbContext.MediaRecordComments.Where(c => c.MediaRecordId == mediaRecordId);
         }
     }
 }

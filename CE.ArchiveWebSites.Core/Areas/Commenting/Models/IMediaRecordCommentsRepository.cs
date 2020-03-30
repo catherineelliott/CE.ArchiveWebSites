@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace CE.ArchiveWebSites.Core.Areas.Commenting.Models
 {
-    public interface IMediaResourceCommentsRepository
+    public interface IMediaRecordCommentsRepository
     {
-        IEnumerable<MediaResourceComment> AllCommentsByMediaResourceId(int? mediaResourceId);
+        IEnumerable<MediaRecordComment> AllCommentsByMediaRecordId(int? mediaRecordId);
     }
 }

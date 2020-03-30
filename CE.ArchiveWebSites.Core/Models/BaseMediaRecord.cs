@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CE.ArchiveWebSites.Core.Models
 {
-    public class BaseMediaResource
+    public class BaseMediaRecord
     {
         public int Id { get; set; }
         public string Title { get; set; }

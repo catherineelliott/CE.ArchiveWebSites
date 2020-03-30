@@ -9,7 +9,7 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
     public class ShoppingCartItem
     {
         public int ShoppingCartItemId { get; set; }
-        public int MediaResourceId { get; set; }
+        public int MediaRecordId { get; set; }
         public int Amount { get; set; }
         public int SizeId { get; set; }
         public OrderSize OrderSize { get; set; }

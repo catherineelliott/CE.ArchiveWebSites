@@ -37,7 +37,7 @@ namespace CE.ArchiveWebSites.Core.Areas.ECommerce.Models
                 var orderDetail = new OrderDetail
                 {
                     Amount = shoppingCartItem.Amount,
-                    MediaResourceId = shoppingCartItem.MediaResourceId,
+                    MediaRecordId = shoppingCartItem.MediaRecordId,
                     Size = shoppingCartItem.OrderSize,
                     SizeId = shoppingCartItem.SizeId,
                     Price = shoppingCartItem.Cost

@@ -18,15 +18,15 @@ namespace CE.ArchiveWebSites.Core.Areas.Commenting.ViewComponents
             db = context;
         }
 
-        public IViewComponentResult Invoke(int mediaResourceId)
+        public IViewComponentResult Invoke(int mediaRecordId)
         {
-            var items = GetItems(mediaResourceId);
+            var items = GetItems(mediaRecordId);
             //View is in Views folder as Areas don't exist for View Components
             return View(items);
         }
-        private IEnumerable<MediaResourceComment> GetItems(int mediaResourceId)
+        private IEnumerable<MediaRecordComment> GetItems(int mediaRecordId)
         {
-            return db.MediaResourceComments.Where(x => x.MediaResourceId == mediaResourceId).ToList();
+            return db.MediaRecordComments.Where(x => x.MediaRecordId == mediaRecordId).ToList();
         }
     }
 }

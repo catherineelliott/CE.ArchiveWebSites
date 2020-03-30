@@ -12,8 +12,8 @@ namespace CE.Leodis.MVC.ViewModels
     //Not using at the mo
     public class DetailsViewModel
     {
-        public MediaResource MediaResource { get; set; }
-        //public IEnumerable<MediaResourceComment> Comments { get; set; }
+        public MediaRecord MediaRecord { get; set; }
+        //public IEnumerable<MediaRecordComment> Comments { get; set; }
         //public string ImageLink { get; set; }
 
         public CheckoutDetails CheckoutDetails { get; set; }

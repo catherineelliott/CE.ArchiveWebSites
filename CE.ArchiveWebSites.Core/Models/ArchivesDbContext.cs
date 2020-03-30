@@ -20,7 +20,7 @@ namespace CE.ArchiveWebSites.Core.Models
 
         }
 
-        public DbSet<MediaResourceComment> MediaResourceComments { get; set; }
+        public DbSet<MediaRecordComment> MediaRecordComments { get; set; }
         public DbSet<WebCard> WebCards { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -33,10 +33,10 @@ namespace CE.ArchiveWebSites.Core.Models
             base.OnModelCreating(modelBuilder);
 
             //seed comments
-            modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 1, Comment = "That's lovely", CreatedBy = "Catherine", MediaResourceId = 1 });
-            modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 2, Comment = "Not great", CreatedBy = "Catherine", MediaResourceId = 2 });
-            modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 3, Comment = "That's a lovely Playbill", CreatedBy = "Catherine", MediaResourceId = 9999 });
-            modelBuilder.Entity<MediaResourceComment>().HasData(new MediaResourceComment { MediaResourceCommentId = 4, Comment = "Not a great Playbill", CreatedBy = "Catherine", MediaResourceId = 4 });
+            modelBuilder.Entity<MediaRecordComment>().HasData(new MediaRecordComment { MediaRecordCommentId = 1, Comment = "That's lovely", CreatedBy = "Catherine", MediaRecordId = 1 });
+            modelBuilder.Entity<MediaRecordComment>().HasData(new MediaRecordComment { MediaRecordCommentId = 2, Comment = "Not great", CreatedBy = "Catherine", MediaRecordId = 2 });
+            modelBuilder.Entity<MediaRecordComment>().HasData(new MediaRecordComment { MediaRecordCommentId = 3, Comment = "That's a lovely Playbill", CreatedBy = "Catherine", MediaRecordId = 9999 });
+            modelBuilder.Entity<MediaRecordComment>().HasData(new MediaRecordComment { MediaRecordCommentId = 4, Comment = "Not a great Playbill", CreatedBy = "Catherine", MediaRecordId = 4 });
 
             //seed sizes
             modelBuilder.Entity<OrderSize>().HasData(new OrderSize { OrderSizeId = 1, Size = "10 x 8 inches" });
