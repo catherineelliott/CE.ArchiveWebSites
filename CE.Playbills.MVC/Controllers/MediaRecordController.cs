@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace CE.Playbills.MVC.Controllers
 {
-    public class MediaRecordsController : Controller
+    public class MediaRecordController : Controller
     {
         public async Task<IActionResult> SearchResults(string apiUrl, int pageNumber = 1, int pageSize = 5)
         {

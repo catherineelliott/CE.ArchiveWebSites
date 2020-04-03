@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CE.ArchiveWebSites.Core.Models.MediaRecordCollection>
+@{
+    ViewData["Title"] = "Guided Tours";
+}
+
+<div style="background-color:#ececec;text-align:center">
+    <h1>Guided Tours</h1>
+    <p>A 'guided tour' can be taken around certain areas in Leeds.  These tours are  a collection of photographs brought together with more detailed text to give an impression of how an area used to be. 'Tours' can currently be taken around the Inns and Yards of Briggate,  Leeds Bridge to North Street, Coronation and Silver Jubilee celebrations, and Temple Newsam House. Select one of the tours below to start a tour.</p>
+    @*<p>Select one of the tours below to start a tour</p>*@
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="@Url.Content(item.MediaRecords.FirstOrDefault().ImageLink)" alt="" style="height:150px">
+            <div class="caption">
+                <h3>
+                    <a asp-controller="MediaRecordCollection" asp-action="GuidedTour" asp-route-id="@item.Id" asp-route-collectionTitle="@item.Title">@Html.DisplayFor(modelItem => item.Title)</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+}

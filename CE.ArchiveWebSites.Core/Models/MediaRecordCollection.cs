@@ -10,5 +10,7 @@ namespace CE.ArchiveWebSites.Core.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string CollectionType { get; set; }
+        public List<MediaRecord> MediaRecords { get; set; }
     }
 }

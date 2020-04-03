@@ -15,12 +15,12 @@ using Newtonsoft.Json;
 
 namespace CE.Leodis.MVC.Controllers
 {
-    public class MediaRecordsController : Controller
+    public class MediaRecordController : Controller
     {
         private readonly IMediaRecordCommentsRepository _mediaRecordCommentsRepository;
         private readonly IOrderRepository _orderRepository;
 
-        public MediaRecordsController(IMediaRecordCommentsRepository mediaRecordCommentsRepository,
+        public MediaRecordController(IMediaRecordCommentsRepository mediaRecordCommentsRepository,
                                             IOrderRepository orderRepository)
         {
             _mediaRecordCommentsRepository = mediaRecordCommentsRepository;

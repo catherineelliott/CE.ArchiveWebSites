@@ -1,0 +1,42 @@
+﻿@model CE.ArchiveWebSites.Core.Models.MediaRecord
+@{
+    ViewData["Title"] = "Guided Tour Pages";
+}
+
+@*<h2>@Html.DisplayFor(model => model.Title)</h2>*@
+<h2>@ViewData["CollectionTitle"]</h2>
+
+<h2>@Html.DisplayFor(model => model.Title)</h2>
+
+<div>
+    <img src="@Url.Content(Model.ImageLink)" alt="Image" />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            This should be the description of the guided tour record e.g. We start our tour ...
+        </dd>
+    </dl>
+</div>
+@{
+    var prevDisabled = Model.Id == 42 ? "disabled" : "";
+    var nextDisabled = Model.Id == 53 ? "disabled" : "";
+    var prevId = Model.Id - 1;
+    var nextId = Model.Id + 1;
+}
+<ul class="pagination">
+    <li style="padding-right: 10px;">
+        <a class="btn btn-primary @prevDisabled"
+           asp-controller="MediaRecordCollection"
+           asp-action="GuidedTour"
+           asp-route-id="" asp-route-collectionTitle="@ViewData["CollectionTitle"]" asp-route-displayOrder="@prevId">Previous</a>
+    </li>
+    <li style="padding-left: 10px;">
+        <a class="btn btn-primary @nextDisabled"
+            asp-controller="MediaRecordCollection"
+            asp-action="GuidedTour"
+            asp-route-id="" asp-route-collectionTitle="@ViewData["CollectionTitle"]" asp-route-displayOrder="@nextId">Next</a>
+    </li>
+</ul>
+

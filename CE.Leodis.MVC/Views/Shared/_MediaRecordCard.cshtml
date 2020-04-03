@@ -1,10 +1,10 @@
-﻿@model MediaRecord
+﻿@model CE.ArchiveWebSites.Core.Models.MediaRecord
 <div class="col-sm-4 col-lg-4 col-md-4">
     <div class="thumbnail">
         <img src="@Url.Content(Model.ImageLink)" alt="" style="height:150px">
         <div class="caption">
             <h3>
-                <a asp-controller="MediaRecords" asp-action="Details" asp-route-id="@Model.Id">@Model.Title</a>
+                <a asp-controller="MediaRecord" asp-action="Details" asp-route-id="@Model.Id">@Model.Title</a>
             </h3>
             <p>@Model.Subject</p>
         </div>
