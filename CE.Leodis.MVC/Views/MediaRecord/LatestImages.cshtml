@@ -1,0 +1,18 @@
+﻿@model PagedMediaRecords
+@{
+    ViewData["Title"] = "Latest images";
+}
+
+<h1>Latest Images</h1>
+
+@{
+    ViewData["ActionName"] = "LatestImages";
+}
+
+<partial name="_PaginationPartial" view-data="ViewData">
+
+@foreach (var item in Model.MediaRecords)
+{
+    <partial name="_MediaRecordCard" model="item" />
+}
+

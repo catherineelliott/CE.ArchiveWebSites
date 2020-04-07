@@ -1,15 +1,19 @@
 ﻿@model PagedMediaRecords
 @{
-    ViewData["Title"] = "SearchResults";
+    ViewData["Title"] = "Search results";
 }
 
 <h1>Search Results</h1>
 
-<partial name="_PaginationPartial" />
-
-@foreach (var item in Model.MediaRecords)
-{
-    <partial name="_MediaRecordCard" model="item" />
+@{
+    ViewData["ActionName"] = "SearchResults";
 }
+
+<partial name="_PaginationPartial" view-data="ViewData">
+
+    @foreach (var item in Model.MediaRecords)
+    {
+        <partial name="_MediaRecordCard" model="item" />
+    }
 
 

@@ -12,6 +12,7 @@ using CE.ArchiveWebSites.Core.Areas.ECommerce.Models;
 using CE.ArchiveWebSites.Core.Areas.Commenting.Models;
 using CE.ArchiveWebSites.Core.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace CE.Leodis.MVC.Controllers
 {
@@ -26,8 +27,10 @@ namespace CE.Leodis.MVC.Controllers
             _mediaRecordCommentsRepository = mediaRecordCommentsRepository;
             _orderRepository = orderRepository;
         }
-        public async Task<IActionResult> SearchResults(string apiUrl, int pageNumber = 1, int pageSize = 5)
+
+        public async Task<IActionResult> SearchResults(string apiUrl, int pageNumber = 1, int pageSize = 5 )
         {
+            //TODO Use common methods
             if (apiUrl == null)
             {
                 apiUrl = $"https://localhost:44300/api/v1/archives/9/mediarecords?pagesize={pageSize}&pagenumber={pageNumber}";
@@ -61,6 +64,58 @@ namespace CE.Leodis.MVC.Controllers
             };
 
             return View(pagedMediaRecords);
+        }
+
+        public async Task<IActionResult> LatestImages(string apiUrl, int pageNumber = 1, int pageSize = 5)
+        {
+            ApiResponse<List<MediaRecord>> mediaRecords = await GetMediaRecords(apiUrl, pageNumber, pageSize);
+
+            if (mediaRecords.ResponseData == null)
+            {
+                return NotFound();
+            }
+
+            var pagedMediaRecords = GetPagedMediaRecords(mediaRecords);
+
+            return View(pagedMediaRecords);
+        }
+
+        
+        public async Task<ApiResponse<List<MediaRecord>>> GetMediaRecords(string apiUrl, int pageNumber, int pageSize)
+        {
+            //Need to add sort to API for latest images
+            if (apiUrl == null)
+            {
+                apiUrl = $"https://localhost:44300/api/v1/archives/9/mediarecords?pagesize={pageSize}&pagenumber={pageNumber}";
+            }
+            var responseObject = await HttpClientHelper.GetFromLMARApi<List<MediaRecord>>(apiUrl);
+
+            return responseObject;
+        }
+
+        public PagedMediaRecords GetPagedMediaRecords(ApiResponse<List<MediaRecord>> mediaRecords)
+        {
+
+            foreach (var mr in mediaRecords.ResponseData)
+            {
+                mr.ImageLink = mr.Links.FirstOrDefault(l => l.Rel == "Thumbnail").Href;
+            };
+
+            PaginationDetails paginationDetails = new PaginationDetails();
+
+            var paginationHeader = mediaRecords.ResponseHeaders.Where(a => a.Key == "X-Pagination")
+                                        .FirstOrDefault().Value;
+            if (paginationHeader != null)
+            {
+                paginationDetails = JsonConvert.DeserializeObject<PaginationDetails>(paginationHeader.FirstOrDefault());
+            }
+            PagedMediaRecords pagedMediaRecords = new PagedMediaRecords()
+            {
+                PaginationDetails = paginationDetails,
+                MediaRecords = mediaRecords.ResponseData
+            };
+
+            return pagedMediaRecords;
         }
 
         public async Task<IActionResult> Details(int? id)
